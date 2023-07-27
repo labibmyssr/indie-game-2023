@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 54052293}
   - component: {fileID: 54052295}
   - component: {fileID: 54052294}
+  - component: {fileID: 54052296}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -2863,6 +2864,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &54052296
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54052292}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 659aa54247bf7c54d8ebd10b59a90be6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &97136315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,7 +2895,10 @@ GameObject:
   m_Component:
   - component: {fileID: 97136317}
   - component: {fileID: 97136316}
+  - component: {fileID: 97136320}
   - component: {fileID: 97136318}
+  - component: {fileID: 97136319}
+  - component: {fileID: 97136321}
   m_Layer: 0
   m_Name: Pemain
   m_TagString: Untagged
@@ -2960,7 +2985,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6256a8ce4434347bfee7f780a89b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kecepatan: 100
+  kecepatanGerak: 5
+  rb: {fileID: 97136320}
+  animator: {fileID: 97136321}
+--- !u!114 &97136319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97136315}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69f067cfbce7041a1ef52a903ad4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 97136320}
+  intensitas: 2
+--- !u!50 &97136320
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97136315}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!95 &97136321
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97136315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71a891bdeb5cddf469270c7cb985dde7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &193247386
 MonoBehaviour:
   m_ObjectHideFlags: 0

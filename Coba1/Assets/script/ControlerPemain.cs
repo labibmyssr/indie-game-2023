@@ -6,43 +6,21 @@ using UnityEngine;
 public class ControlerPemain : MonoBehaviour
 {
 
-    public float kecepatan;
-    private bool bergerak;
-    private Vector2 input;
-
+    public float kecepatanGerak = 5f;
+    public Rigidbody2D rb;
+    Vector2 gerakan;
+    public Animator animator;
     private void Update()
     {
-        if (!bergerak)
-        {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
-
-            if (input != Vector2.zero)
-            {
-                var posisiTarget = transform.position;
-                posisiTarget.x += input.x;
-                posisiTarget.y += input.y;
-
-                StartCoroutine(Gerak(posisiTarget));
-
-            }
-
-        }
-
-
+        gerakan.x = Input.GetAxisRaw("Horizontal");
+        gerakan.y = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("Horizontal", gerakan.x);
+        animator.SetFloat("Vertical", gerakan.y);
+        animator.SetFloat("Kecepatan", gerakan.sqrMagnitude);
     }
 
-    IEnumerator Gerak(Vector3 posisiTarget)
+    private void FixedUpdate()
     {
-        bergerak = true;
-        while((posisiTarget - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            posisiTarget = Vector3.MoveTowards(transform.position, posisiTarget, kecepatan * Time.deltaTime);
-            
-            yield return null; 
-        }
-
-        transform.position = posisiTarget;
-        bergerak = false;
+        rb.MovePosition(rb.position + gerakan.normalized * kecepatanGerak * Time.fixedDeltaTime);
     }
 }
